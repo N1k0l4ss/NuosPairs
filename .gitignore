@@ -67,3 +67,6 @@ node_modules/
 
 # Project exclude paths
 /dist/
+/.angular/cache/
+/firebase.json
+/.firebaserc

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Subject} from "../../service/post/subject";
 import {SubjectService} from "../../service/post/subject.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import * as moment from "moment";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class SubjectsComponent implements OnInit {
     public subjects: Subject[] = [];
+    public static group: string;
 
     constructor(private subjectService: SubjectService,
               private router: Router) {
@@ -30,6 +30,7 @@ export class SubjectsComponent implements OnInit {
     ngOnInit(): void {
       let strings = this.router.url.split('/');
        if (strings.length > 2) {
+           SubjectsComponent.group = strings[1];
            this.getSubjectsByParam(Number(strings[1]), strings[2] + '/' + strings[3]);
        }
     }
