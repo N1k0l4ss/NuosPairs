@@ -1,5 +1,8 @@
 .subject {
   border-bottom: #888888A3 solid 1px;
+  &:last-child {
+    border: none;
+  }
   padding-bottom: 15px;
 }
 
@@ -51,8 +54,8 @@ h1 {
 }
 
 .separator {
-  margin-top: 10px;
-  border-bottom: 5px solid rgba(98, 98, 98, 0.09);
+  margin: 10px 0 30px;
+  border-bottom: 5px solid rgb(137, 0, 0);
 }
 
 .auditory {
