@@ -1,0 +1,70 @@
+.nav-header{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+/*Header nav link*/
+.nav-link{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #626262;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: color .2s linear, border-bottom-color .4s linear;
+
+  &:hover,
+  &.current{
+    color: #fc8a8a;
+  }
+  &:hover{
+    border-bottom-color: #fc8a8a;
+  }
+}
+
+/*Header logo*/
+.logo {
+  background-image: url("/assets/img/2back.png"); // TODO img css
+  border-width: 1px;
+  border-style: inset;
+  border-left: none;
+  border-right: none;
+  border-bottom-color: rgba(128, 128, 128, 0.24);
+  border-top-color: rgba(128, 128, 128, 0.24);
+  text-align: center;
+
+  img {
+    width: 300px;
+    margin: 50px auto;
+  }
+}
+
+@media (max-width: 881px) {
+  .nav-link {
+    margin-bottom: 10px;
+  }
+  .nav-header {
+    padding-bottom: 0;
+  }
+  .params {
+    display: block;
+    :before {
+      content: "";
+    }
+  }
+  .separator {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo{
+    height: 150px;
+    img{
+      height: 150px;
+      margin: 0 auto;
+    }
+  }
+}

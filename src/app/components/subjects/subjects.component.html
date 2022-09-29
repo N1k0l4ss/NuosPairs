@@ -1,0 +1,19 @@
+<div *ngIf="subjects.length > 0; else subjectEmpty">
+    <h1><span>{{subjects[0].weekDay.title}}</span></h1>
+    <div *ngFor="let subject of subjects" class="subject">
+        <h2 class="subject-title"><span>{{subject.timing.id}}</span>. {{subject.title}}</h2>
+        <div><a href="{{subject.meetingUrl}}" target="_blank">Meeting url</a></div>
+        <div><a href="{{subject.classroomUrl}}" target="_blank">Google class</a></div>
+        <div>Auditory {{subject.auditory}}</div>
+        <div class="timings">Starts at: <span>{{subject.timing.startsAt}}</span></div>
+        <div class="timings">Ends at: <span>{{subject.timing.endsAt}}</span></div>
+    </div>
+</div>
+
+<!--<div class="separator"></div>-->
+
+<ng-template #subjectEmpty>
+    <div class="subject">
+        <h2 class="subject-title">No subject</h2>
+    </div>
+</ng-template>
