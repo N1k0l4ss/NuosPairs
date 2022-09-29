@@ -2,9 +2,9 @@
     <h1><span>{{subjects[0].weekDay.title}}</span></h1>
     <div *ngFor="let subject of subjects" class="subject">
         <h2 class="subject-title"><span>{{subject.timing.id}}</span>. {{subject.title}}</h2>
-        <div><a href="{{subject.meetingUrl}}" target="_blank">Meeting url</a></div>
-        <div><a href="{{subject.classroomUrl}}" target="_blank">Google class</a></div>
-        <div>Auditory {{subject.auditory}}</div>
+        <div *ngIf="subject.meetingUrl !== ''"><a href="{{subject.meetingUrl}}" target="_blank">Meeting url</a></div>
+        <div *ngIf="subject.classroomUrl !== ''"><a href="{{subject.classroomUrl}}" target="_blank">Google class</a></div>
+        <div *ngIf="subject.auditory !== ''" class="auditory">Auditory <span>{{subject.auditory}}</span></div>
         <div class="timings">Starts at: <span>{{subject.timing.startsAt}}</span></div>
         <div class="timings">Ends at: <span>{{subject.timing.endsAt}}</span></div>
     </div>

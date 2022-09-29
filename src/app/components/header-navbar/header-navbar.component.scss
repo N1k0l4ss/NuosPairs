@@ -41,7 +41,11 @@
   }
 }
 
-@media (max-width: 881px) {
+.params{
+  display: inline-block;
+}
+
+@media (max-width: 886px) {
   .nav-link {
     margin-bottom: 10px;
   }
@@ -50,9 +54,6 @@
   }
   .params {
     display: block;
-    :before {
-      content: "";
-    }
   }
   .separator {
     display: none;
