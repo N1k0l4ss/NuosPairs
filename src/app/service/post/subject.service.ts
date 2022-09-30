@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 })
 export class SubjectService {
   private apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs';
+// private apiServiceUrl = 'http://localhost:8080/pairs';
 
   constructor(private http: HttpClient) { }
 

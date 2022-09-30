@@ -46,7 +46,7 @@
   display: inline-block;
 }
 
-@media (max-width: 886px) {
+@media (max-width: 768px) {
   .nav-link {
     margin-bottom: 10px;
   }
@@ -59,9 +59,7 @@
   .separator {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
   .logo{
     height: 150px;
     img{

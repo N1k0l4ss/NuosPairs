@@ -11,7 +11,8 @@ import {Router} from "@angular/router";
 })
 export class SubjectsComponent implements OnInit {
     public subjects: Subject[] = [];
-    public static group: string;
+    public nearTimingSubjects: Subject[] = [];
+    public nearTimingsTitle = ['Previous pair', 'Pair now', 'Next pair'];
 
     constructor(private subjectService: SubjectService,
               private router: Router) {
@@ -27,11 +28,36 @@ export class SubjectsComponent implements OnInit {
         );
     }
 
+    public getNearTimingSubject(group: number): void {
+        this.subjectService.getSubjectsByParam(group, 'prev').subscribe(
+            (response: Subject[]) => {
+              this.nearTimingSubjects[0] = response[0];
+            }, (error: HttpErrorResponse) => {
+              alert(error.message)
+            }
+        );
+        this.subjectService.getSubjectsByParam(group, 'now').subscribe(
+            (response: Subject[]) => {
+              this.nearTimingSubjects[1] = response[0];
+            }, (error: HttpErrorResponse) => {
+              alert(error.message)
+            }
+        );
+        this.subjectService.getSubjectsByParam(group, 'next').subscribe(
+            (response: Subject[]) => {
+              this.nearTimingSubjects[2] = response[0];
+            }, (error: HttpErrorResponse) => {
+              alert(error.message)
+            }
+        );
+    }
+
     ngOnInit(): void {
       let strings = this.router.url.split('/');
-       if (strings.length > 2) {
-           SubjectsComponent.group = strings[1];
+       if (strings.length > 2) { // by default
            this.getSubjectsByParam(Number(strings[1]), strings[2] + '/' + strings[3]);
+           ///
+           this.getNearTimingSubject(Number(strings[1]));
        }
     }
 }
