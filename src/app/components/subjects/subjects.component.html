@@ -12,7 +12,6 @@
 
 <div class="separator"></div>
 
-<!--<h2><span>Prev/Now/Next</span></h2>-->
 <div *ngFor="let subject of nearTimingSubjects; let idx = index" class="subject">
     <h2><span>{{nearTimingsTitle[idx]}}</span></h2>
     <div *ngIf="subject; else noTiming">
