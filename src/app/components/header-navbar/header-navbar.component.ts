@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-header-navbar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public appComponent: AppComponent) { }
 
   ngOnInit(): void {
+  }
+
+  onClickNav(param: String) {
+    this.appComponent.query = param;
+    // TODO Вызов метода заполнения списка предметов
   }
 
 }

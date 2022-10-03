@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from "@angular/common/http";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from "@angular/common/http";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SubjectsComponent } from './components/subjects/subjects.component';
-import { HeaderNavbarComponent } from './components/header-navbar/header-navbar.component';
-import { Page404Component } from './components/page404/page404.component';
-import { FooterComponent } from './components/footer/footer.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeaderNavbarComponent} from './components/header-navbar/header-navbar.component';
+import {Page404Component} from './components/page404/page404.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {GroupSelectorComponent} from "./components/group-selector/group-selector.component";
+import {SubjectsComponent} from "./components/subjects/subjects.component";
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderNavbarComponent,
     Page404Component,
     FooterComponent,
+    GroupSelectorComponent,
   ],
   imports: [
     HttpClientModule,

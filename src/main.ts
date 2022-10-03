@@ -7,20 +7,11 @@ import { environment } from './environments/environment';
 environment.production = true;
 if (environment.production) {
   enableProdMode();
-  kickBackend();
-}
-
-async function kickBackend() {
-  let url = 'https://spring-pairs.herokuapp.com/pairs/info';
-  while (true){
-    fetch(`${url}`).then();
-    await delay(300000);
-  }
-}
-function delay(ms: number)
-{
-  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+// TODO Сделать сохранения номера выбранной группы в куки
+
+// TODO Сделать анимации загрузки

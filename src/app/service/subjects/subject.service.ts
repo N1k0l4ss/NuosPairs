@@ -16,7 +16,7 @@ export class SubjectService {
     return this.http.get<Subject[]>(`${this.apiServiceUrl}/${group}`)
   }
 
-  public getSubjectsByParam(group: number, param: string): Observable<Subject[]> {
+  public getSubjectsByParam(group: Number, param: String): Observable<Subject[]> {
     return this.http.get<Subject[]>(`${this.apiServiceUrl}/${group}/${param}`)
   }
 }

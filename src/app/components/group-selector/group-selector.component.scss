@@ -1,0 +1,31 @@
+h1 {
+  color: #626262;
+  text-align: center;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h2 {
+  background-color: #f4f4f4;
+  color: #626262;
+
+  margin: 20px;
+  padding: 10px;
+
+  font-size: large;
+  text-transform: uppercase;
+  text-align: center;
+
+  border-radius: 30px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+
+  transition: color .2s linear, border-color .4s linear;
+  cursor: pointer;
+  &:hover{
+    color: #fc8a8a;
+    border-left-color: #fc8a8a;
+    border-right-color: #fc8a8a;
+    box-shadow: 1px 3px 1px #686868;
+  }
+}

@@ -1,13 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {SubjectsComponent} from "./components/subjects/subjects.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {Page404Component} from "./components/page404/page404.component";
+import {GroupSelectorComponent} from "./components/group-selector/group-selector.component";
 
 const routes: Routes = [
-  { path: '', component: SubjectsComponent },
-  // { path: ':group', component: AllGroupPairsComponent },
-  { path: ':group/:params', component: SubjectsComponent },
-  { path: ':group/:params/:week', component: SubjectsComponent },
+  { path: '', component: GroupSelectorComponent },
   { path: 'page404', component: Page404Component }
 ];
 

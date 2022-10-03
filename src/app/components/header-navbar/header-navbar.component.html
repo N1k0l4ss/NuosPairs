@@ -1,18 +1,18 @@
 <header class="header">
-    <nav class="nav-header">
+    <nav *ngIf="appComponent.group !== 0" class="nav-header">
         <span class="params">
-            <a class="nav-link" href="/4151/mon">Mon</a>
-            <a class="nav-link" href="/4151/tue">Tue</a>
-            <a class="nav-link" href="/4151/wed">Wed</a>
-            <a class="nav-link" href="/4151/thu">Thu</a>
-            <a class="nav-link" href="/4151/fri">Fri</a>
+            <p class="nav-link" (click)="onClickNav('mon')">Mon</p>
+            <p class="nav-link" (click)="onClickNav('tue')">Tue</p>
+            <p class="nav-link" (click)="onClickNav('wed')">Wed</p>
+            <p class="nav-link" (click)="onClickNav('thu')">Thu</p>
+            <p class="nav-link" (click)="onClickNav('fri')">Fri</p>
         </span>
 
         <span class="params">
         <span class="separator"> | </span>
-            <a class="nav-link" href="/4151/yesterday">Yesterday</a>
-            <a class="nav-link" href="/4151/today">Today</a>
-            <a class="nav-link" href="/4151/tomorrow">Tomorrow</a>
+            <p class="nav-link" (click)="onClickNav('yesterday')">Yesterday</p>
+            <p class="nav-link" (click)="onClickNav('today')">Today</p>
+            <p class="nav-link" (click)="onClickNav('tomorrow')">Tomorrow</p>
         </span>
     </nav>
     <div class="logo">
