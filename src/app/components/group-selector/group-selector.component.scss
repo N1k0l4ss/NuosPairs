@@ -5,16 +5,20 @@ h1 {
   text-transform: uppercase;
 }
 
-h2 {
+a {
+  display: block;
+
   background-color: #f4f4f4;
   color: #626262;
 
   margin: 20px;
   padding: 10px;
 
-  font-size: large;
+  font-size: 18px;
   text-transform: uppercase;
   text-align: center;
+  text-decoration: none;
+
 
   border-radius: 30px;
   border-left: 3px solid transparent;

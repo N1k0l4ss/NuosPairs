@@ -10,7 +10,8 @@ import {AppComponent} from "../../app.component";
 export class GroupSelectorComponent implements OnInit {
 
   private apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs/groups';
-  public groups: Number[] = [];
+// private apiServiceUrl = 'http://localhost:8080/pairs/groups';
+  public groups: String[] = [];
 
   constructor(private http: HttpClient, private appComponent: AppComponent) {
   }
@@ -19,14 +20,15 @@ export class GroupSelectorComponent implements OnInit {
     this.initGroups();
   }
 
-  selectGroup(group: Number){
+  selectGroup(group: String){
     this.appComponent.group = group;
     this.appComponent.query = 'today';
+    this.appComponent.fillSubjects();
   }
 
   initGroups(): void {
-      this.http.get<Number[]>(this.apiServiceUrl).subscribe(
-        (response: Number[]) => {
+      this.http.get<String[]>(this.apiServiceUrl).subscribe(
+        (response: String[]) => {
           this.groups = response
         }
     )

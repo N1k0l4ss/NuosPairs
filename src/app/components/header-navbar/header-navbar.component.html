@@ -1,5 +1,5 @@
 <header class="header">
-    <nav *ngIf="appComponent.group !== 0" class="nav-header">
+    <nav *ngIf="appComponent.group !== null" class="nav-header">
         <span class="params">
             <p class="nav-link" (click)="onClickNav('mon')">Mon</p>
             <p class="nav-link" (click)="onClickNav('tue')">Tue</p>

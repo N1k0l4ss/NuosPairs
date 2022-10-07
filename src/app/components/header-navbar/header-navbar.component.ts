@@ -15,7 +15,7 @@ export class HeaderNavbarComponent implements OnInit {
 
   onClickNav(param: String) {
     this.appComponent.query = param;
-    // TODO Вызов метода заполнения списка предметов
+    this.appComponent.fillSubjects();
   }
 
 }

@@ -1,6 +1,6 @@
-<div *ngIf="subjects.length > 0; else subjectEmpty">
-    <h1><span>{{subjects[0].weekDay.title}}</span></h1>
-    <div *ngFor="let subject of subjects" class="subject">
+<div *ngIf="appComponent.subjects.length > 0; else subjectEmpty">
+    <h1><span>{{appComponent.subjects[0].weekDay.title}}</span></h1>
+    <div *ngFor="let subject of appComponent.subjects" class="subject">
         <h3 class="subject-title"><span>{{subject.timing.id}}</span>. {{subject.title}}</h3>
         <div *ngIf="subject.meetingUrl !== ''"><a href="{{subject.meetingUrl}}" target="_blank">Meeting url</a></div>
         <div *ngIf="subject.classroomUrl !== ''"><a href="{{subject.classroomUrl}}" target="_blank">Google class</a></div>
@@ -12,7 +12,7 @@
 
 <div class="separator"></div>
 
-<div *ngFor="let subject of nearTimingSubjects; let idx = index" class="subject">
+<div *ngFor="let subject of appComponent.nearTimingSubjects; let idx = index" class="subject">
     <h2><span>{{nearTimingsTitle[idx]}}</span></h2>
     <div *ngIf="subject; else noTiming">
         <h3 class="subject-title"><span>{{subject.timing.id}}</span>. {{subject.title}}</h3>
