@@ -5,7 +5,7 @@ import {AppComponent} from "../../app.component";
 @Component({
     selector: 'app-subjects-component',
     templateUrl: './subjects.component.html',
-  styleUrls: ['./subjects.component.scss']
+    styleUrls: ['./subjects.component.scss']
 })
 export class SubjectsComponent implements OnInit {
 

@@ -37,8 +37,7 @@
   text-align: center;
 
   img {
-    width: 300px;
-    margin: 50px auto;
+    height: 150px;
   }
 }
 
@@ -58,13 +57,5 @@
   }
   .separator {
     display: none;
-  }
-
-  .logo{
-    height: 150px;
-    img{
-      height: 150px;
-      margin: 0 auto;
-    }
   }
 }
