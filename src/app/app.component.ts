@@ -38,7 +38,6 @@ export class AppComponent {
             await this.delay(100);
         }
         while (true) {
-            console.log("works");
             if (this.group !== null)
                 this.getNearTimingSubject(this.group);
             await this.delay(30000);
