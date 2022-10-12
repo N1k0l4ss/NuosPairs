@@ -9,8 +9,6 @@ import {AppComponent} from "../../app.component";
 })
 export class GroupSelectorComponent implements OnInit {
 
-  private apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs/groups';
-// private apiServiceUrl = 'http://localhost:8080/pairs/groups';
   public groups: String[] = [];
 
   constructor(private http: HttpClient, private appComponent: AppComponent) {
@@ -27,7 +25,7 @@ export class GroupSelectorComponent implements OnInit {
   }
 
   initGroups(): void {
-      this.http.get<String[]>(this.apiServiceUrl).subscribe(
+      this.http.get<String[]>(AppComponent.apiServiceUrl + '/groups').subscribe( // group
         (response: String[]) => {
           this.groups = response
         }

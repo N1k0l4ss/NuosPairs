@@ -18,4 +18,12 @@ export class HeaderNavbarComponent implements OnInit {
     this.appComponent.fillSubjects();
   }
 
+  isCurrent(param: string) {
+    return this.appComponent.query === param;
+  }
+
+  onClickNext() {
+    this.appComponent.isNextWeek = !this.appComponent.isNextWeek;
+    this.appComponent.fillSubjects();
+  }
 }

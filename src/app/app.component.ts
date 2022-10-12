@@ -11,11 +11,13 @@ import {SubjectService} from "./service/subjects/subject.service";
 export class AppComponent {
 
   public group: String | null = null;
-
   public query: String = '';
-
   public subjects: Subject[] = [];
   public nearTimingSubjects: Subject[] = [];
+  public isNextWeek = false;
+
+    public static apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs';
+// public static apiServiceUrl = 'http://localhost:8080/pairs';
 
   constructor(private subjectService: SubjectService) {
   }
@@ -23,7 +25,8 @@ export class AppComponent {
   public fillSubjects() {
       if (this.group == null)
           return;
-      this.getSubjectsByParam(this.group, this.query);
+
+      this.getSubjectsByParam(this.group, this.query + (this.isNextWeek ? '/next' : ''));
       this.getNearTimingSubject(this.group);
   }
 

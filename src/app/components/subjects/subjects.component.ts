@@ -23,5 +23,4 @@ export class SubjectsComponent implements OnInit {
     ngOnInit(): void {
     }
 
-
 }

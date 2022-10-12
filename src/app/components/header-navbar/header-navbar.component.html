@@ -1,21 +1,21 @@
 <header class="header">
     <nav *ngIf="appComponent.group !== null" class="nav-header">
         <span class="params">
-            <p class="nav-link" (click)="onClickNav('mon')">Mon</p>
-            <p class="nav-link" (click)="onClickNav('tue')">Tue</p>
-            <p class="nav-link" (click)="onClickNav('wed')">Wed</p>
-            <p class="nav-link" (click)="onClickNav('thu')">Thu</p>
-            <p class="nav-link" (click)="onClickNav('fri')">Fri</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('mon')}" (click)="onClickNav('mon')">Mon</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('tue')}" (click)="onClickNav('tue')">Tue</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('wed')}" (click)="onClickNav('wed')">Wed</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('thu')}" (click)="onClickNav('thu')">Thu</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('fri')}" (click)="onClickNav('fri')">Fri</p>
         </span>
 
         <span class="params">
         <span class="separator"> | </span>
-            <p class="nav-link" (click)="onClickNav('yesterday')">Yesterday</p>
-            <p class="nav-link" (click)="onClickNav('today')">Today</p>
-            <p class="nav-link" (click)="onClickNav('tomorrow')">Tomorrow</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('yesterday')}" (click)="onClickNav('yesterday')">Yesterday</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('today')}" (click)="onClickNav('today')">Today</p>
+            <p class="nav-link" [ngClass]="{current:isCurrent('tomorrow')}" (click)="onClickNav('tomorrow')">Tomorrow</p>
         </span>
     </nav>
     <div class="logo">
-        <img src="assets/img/azalea-logo.png" alt="logo">
+        <img [ngClass]="{next_week:appComponent.isNextWeek}" (click)="onClickNext()" src="assets/img/azalea-logo.png" alt="logo">
     </div>
 </header>

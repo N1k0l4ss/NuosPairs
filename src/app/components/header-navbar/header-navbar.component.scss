@@ -38,6 +38,9 @@
 
   img {
     height: 150px;
+    &.next_week {
+      border-bottom: #151515 3px solid;
+    }
   }
 }
 
