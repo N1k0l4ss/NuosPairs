@@ -49,6 +49,7 @@ export class AppComponent {
     }
 
     private getSubjectsByParam(group: String, param: String): void {
+        this.subjects = null;
         this.subjectService.getSubjectsByParam(group, param).subscribe(
             (response: Subject[]) => {
                 this.subjects = response;

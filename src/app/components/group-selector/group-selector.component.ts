@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {AppComponent} from "../../app.component";
 
 @Component({
@@ -9,7 +9,7 @@ import {AppComponent} from "../../app.component";
 })
 export class GroupSelectorComponent implements OnInit {
 
-  public groups: String[] = [];
+  public groups: String[] | null = null;
 
   constructor(private http: HttpClient, private appComponent: AppComponent) {
   }
@@ -28,7 +28,9 @@ export class GroupSelectorComponent implements OnInit {
       this.http.get<String[]>(AppComponent.apiServiceUrl + '/groups').subscribe( // group
         (response: String[]) => {
           this.groups = response
-        }
+        }, (error: HttpErrorResponse) => {
+            this.groups = null;
+          }
     )
   }
 

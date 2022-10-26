@@ -1,4 +1,12 @@
 <h1>Select your group</h1>
-<div *ngFor="let group of groups">
-    <a routerLink="/{{group}}" (click)="selectGroup(group)">{{group}}</a>
+<div *ngIf="groups !== null; else loading">
+    <div *ngFor="let group of groups">
+        <a routerLink="/{{group}}" (click)="selectGroup(group)">{{group}}</a>
+    </div>
 </div>
+
+<ng-template #loading>
+    <div class="div_center">
+        <div class="loader"></div>
+    </div>
+</ng-template>
