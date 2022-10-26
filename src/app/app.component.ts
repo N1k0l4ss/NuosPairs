@@ -38,10 +38,9 @@ export class AppComponent {
         }
         while (true) {
             if (this.group !== null) {
-                this.nearTimingSubjects = [];
                 this.getNearTimingSubject(this.group);
             }
-            await this.delay(30000);
+            await this.delay(50000);
         }
     }
 
@@ -60,6 +59,9 @@ export class AppComponent {
     }
 
     private getNearTimingSubject(group: String): void {
+        if (this.nearTimingSubjects === null)
+            this.nearTimingSubjects = [];
+
         this.subjectService.getSubjectsByParam(group, 'prev').subscribe(
             (response: Subject[]) => {
                 if (this.nearTimingSubjects !== null)
