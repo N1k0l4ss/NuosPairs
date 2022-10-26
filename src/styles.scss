@@ -60,11 +60,12 @@ img{
 
 /// spinner
 
-.div-center {
+.div_center {
   text-align: center;
 }
 
 .loader {
+  margin: 10px;
   display: inline-block;
   --b: 5px;  /* border thickness */
   --n: 10;    /* number of dashes*/

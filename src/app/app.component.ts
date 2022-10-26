@@ -12,7 +12,7 @@ export class AppComponent {
 
     public group: String | null = null;
     public query: String = '';
-    public subjects: Subject[] = [];
+    public subjects: Subject[] | null = null;
     public nearTimingSubjects: Subject[] | null = null;
     public isNextWeek = false;
     private firstInit = true;
@@ -53,7 +53,7 @@ export class AppComponent {
             (response: Subject[]) => {
                 this.subjects = response;
             }, (error: HttpErrorResponse) => {
-                alert(error.message)
+                this.subjects = null;
             }
         );
     }
@@ -68,7 +68,6 @@ export class AppComponent {
                     this.nearTimingSubjects[0] = response[0];
             }, (error: HttpErrorResponse) => {
                 this.nearTimingSubjects = null;
-                alert(error.message)
             }
         );
         this.subjectService.getSubjectsByParam(group, 'now').subscribe(
@@ -77,7 +76,6 @@ export class AppComponent {
                     this.nearTimingSubjects[1] = response[0];
             }, (error: HttpErrorResponse) => {
                 this.nearTimingSubjects = null;
-                alert(error.message)
             }
         );
         this.subjectService.getSubjectsByParam(group, 'next').subscribe(
@@ -86,7 +84,6 @@ export class AppComponent {
                     this.nearTimingSubjects[2] = response[0];
             }, (error: HttpErrorResponse) => {
                 this.nearTimingSubjects = null;
-                alert(error.message)
             }
         );
     }
