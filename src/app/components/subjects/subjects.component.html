@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<div *ngIf="appComponent.subjects !== null">
+<div *ngIf="appComponent.subjects !== null || appComponent.nearTimingSubjects !== null">
     <div class="separator"></div>
     <div *ngIf="appComponent.nearTimingSubjects !== null; else loading">
         <div *ngFor="let subject of appComponent.nearTimingSubjects; let idx = index" class="subject">
