@@ -17,8 +17,8 @@ export class AppComponent {
     public isNextWeek = false;
     private firstInit = true;
 
-    public static apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs';
-// public static apiServiceUrl = 'http://localhost:8080/pairs';
+    // public static apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs';
+public static apiServiceUrl = 'http://localhost:8080/pairs';
 
     constructor(private subjectService: SubjectService) {
         this.nearestSubjectsWatcher();

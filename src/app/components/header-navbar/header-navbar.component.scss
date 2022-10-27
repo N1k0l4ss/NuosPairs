@@ -44,8 +44,13 @@
   }
 }
 
-.params{
+.nav_controls{
   display: inline-block;
+}
+
+.pages_links {
+  position: absolute;
+  right: 30px;
 }
 
 @media (max-width: 768px) {
@@ -55,7 +60,7 @@
   .nav-header {
     padding-bottom: 0;
   }
-  .params {
+  .nav_controls {
     display: block;
   }
   .separator {
