@@ -5,7 +5,7 @@
 }
 
 /*Header nav link*/
-.nav-link{
+.nav-param-btns{
   display: inline-block;
   vertical-align: top;
   margin: 0 15px;
@@ -50,11 +50,19 @@
 
 .pages_links {
   position: absolute;
-  right: 30px;
+  right: 20px;
+  a {
+    margin: 10px;
+    color: #151515;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 @media (max-width: 768px) {
-  .nav-link {
+  .nav-param-btns {
     margin-bottom: 10px;
   }
   .nav-header {
@@ -65,5 +73,12 @@
   }
   .separator {
     display: none;
+  }
+  .pages_links {
+    position: initial;
+    margin-bottom: 15px;
+    //right: auto;
+    a {
+    }
   }
 }

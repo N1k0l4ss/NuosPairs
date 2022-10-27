@@ -1,22 +1,23 @@
 <header class="header">
     <nav *ngIf="appComponent.group !== null" class="nav-header">
         <div class="nav_controls">
-            <p class="nav-link" [ngClass]="{current:isCurrent('mon')}" (click)="onClickNav('mon')">Mon</p>
-            <p class="nav-link" [ngClass]="{current:isCurrent('tue')}" (click)="onClickNav('tue')">Tue</p>
-            <p class="nav-link" [ngClass]="{current:isCurrent('wed')}" (click)="onClickNav('wed')">Wed</p>
-            <p class="nav-link" [ngClass]="{current:isCurrent('thu')}" (click)="onClickNav('thu')">Thu</p>
-            <p class="nav-link" [ngClass]="{current:isCurrent('fri')}" (click)="onClickNav('fri')">Fri</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('mon')}" (click)="onClickNav('mon')">Mon</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('tue')}" (click)="onClickNav('tue')">Tue</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('wed')}" (click)="onClickNav('wed')">Wed</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('thu')}" (click)="onClickNav('thu')">Thu</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('fri')}" (click)="onClickNav('fri')">Fri</p>
         </div>
 
         <div class="nav_controls">
-        <span class="separator"> | </span>
-            <p class="nav-link" [ngClass]="{current:isCurrent('yesterday')}" (click)="onClickNav('yesterday')">Yesterday</p>
-            <p class="nav-link" [ngClass]="{current:isCurrent('today')}" (click)="onClickNav('today')">Today</p>
-            <p class="nav-link" [ngClass]="{current:isCurrent('tomorrow')}" (click)="onClickNav('tomorrow')">Tomorrow</p>
+            <span class="separator"> | </span>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('yesterday')}" (click)="onClickNav('yesterday')">Yesterday</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('today')}" (click)="onClickNav('today')">Today</p>
+            <p class="nav-param-btns" [ngClass]="{current:isCurrent('tomorrow')}" (click)="onClickNav('tomorrow')">Tomorrow</p>
         </div>
 
         <div class="nav_controls pages_links">
-            <a>Login</a>
+            <a routerLink=".." (click)="onClickA()">Change group</a>
+            <a routerLink="/admin" (click)="onClickA()">Log as admin</a>
         </div>
     </nav>
     <div class="logo">

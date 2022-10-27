@@ -26,4 +26,8 @@ export class HeaderNavbarComponent implements OnInit {
     this.appComponent.isNextWeek = !this.appComponent.isNextWeek;
     this.appComponent.fillSubjects();
   }
+
+  onClickA() {
+    this.appComponent.group = null;
+  }
 }

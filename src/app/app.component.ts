@@ -59,7 +59,7 @@ public static apiServiceUrl = 'http://localhost:8080/pairs';
         );
     }
 
-    private getNearTimingSubject(group: String): void {
+    public getNearTimingSubject(group: String): void {
         if (this.nearTimingSubjects === null)
             this.nearTimingSubjects = [];
 

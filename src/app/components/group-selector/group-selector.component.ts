@@ -22,6 +22,8 @@ export class GroupSelectorComponent implements OnInit {
     this.appComponent.group = group;
     this.appComponent.query = 'today';
     this.appComponent.fillSubjects();
+    this.appComponent.nearTimingSubjects = null;
+    this.appComponent.getNearTimingSubject(group);
   }
 
   initGroups(): void {

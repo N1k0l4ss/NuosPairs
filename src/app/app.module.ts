@@ -9,6 +9,7 @@ import {Page404Component} from './components/page404/page404.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {GroupSelectorComponent} from "./components/group-selector/group-selector.component";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {SubjectsComponent} from "./components/subjects/subjects.component";
     Page404Component,
     FooterComponent,
     GroupSelectorComponent,
+    AdminComponent,
   ],
   imports: [
     HttpClientModule,
