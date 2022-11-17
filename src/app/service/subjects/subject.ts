@@ -18,4 +18,5 @@ export interface Subject {
     auditory: string
     classroomUrl: string
     meetingUrl: string
+    evenSubject: boolean
 }
