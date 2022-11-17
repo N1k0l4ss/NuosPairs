@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="dc80nsf0mfhgl9@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com" uuid="807894f6-b78c-4aca-8b1d-d4827aa53651">
+    <data-source source="LOCAL" name="Live database render.com" uuid="6e2b3dde-a03a-46a5-aaae-f79d30720505">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-63-32-248-14.eu-west-1.compute.amazonaws.com/dc80nsf0mfhgl9</jdbc-url>
+      <jdbc-url>jdbc:postgresql://dpg-cdb782qrrk09hiq610h0-a.frankfurt-postgres.render.com:5432/springpair</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
