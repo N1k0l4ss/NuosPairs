@@ -1,6 +1,6 @@
 <h1>Select your group</h1>
-<div *ngIf="groups !== null; else loading">
-    <div *ngFor="let group of groups">
+<div *ngIf="appComponent.groups !== null; else loading">
+    <div *ngFor="let group of appComponent.groups">
         <a routerLink="/{{group}}" (click)="selectGroup(group)">{{group}}</a>
     </div>
 </div>

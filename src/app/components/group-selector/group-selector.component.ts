@@ -9,13 +9,12 @@ import {AppComponent} from "../../app.component";
 })
 export class GroupSelectorComponent implements OnInit {
 
-  public groups: String[] | null = null;
 
-  constructor(private http: HttpClient, private appComponent: AppComponent) {
+  constructor(private http: HttpClient, public appComponent: AppComponent) {
   }
 
   ngOnInit(): void {
-    this.initGroups();
+    this.appComponent.initGroups();
   }
 
   selectGroup(group: String){
@@ -24,16 +23,6 @@ export class GroupSelectorComponent implements OnInit {
     this.appComponent.fillSubjects();
     this.appComponent.nearTimingSubjects = null;
     this.appComponent.getNearTimingSubject(group);
-  }
-
-  initGroups(): void {
-      this.http.get<String[]>(AppComponent.apiServiceUrl + '/groups').subscribe( // group
-        (response: String[]) => {
-          this.groups = response
-        }, (error: HttpErrorResponse) => {
-            this.groups = null;
-          }
-    )
   }
 
 }

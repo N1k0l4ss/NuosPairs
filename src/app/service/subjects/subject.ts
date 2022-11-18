@@ -1,9 +1,9 @@
-interface WeekDay {
+export interface WeekDay {
     id: number
     title: string
 }
 
-interface Timing {
+export interface Timing {
     id: number
     startsAt: string
     endsAt: string

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Subject} from "./service/subjects/subject";
+import {Subject, Timing, WeekDay} from "./service/subjects/subject";
 import {HttpErrorResponse} from "@angular/common/http";
 import {SubjectService} from "./service/subjects/subject.service";
 
@@ -16,9 +16,13 @@ export class AppComponent {
     public nearTimingSubjects: Subject[] | null = null;
     public isNextWeek = false;
     private firstInit = true;
+    public groups: String[] | null = null;
 
-    // public static apiServiceUrl = 'https://spring-pairs.herokuapp.com/pairs';
-public static apiServiceUrl = 'http://localhost:8080/pairs';
+    public timings: Timing[] | null = null;
+    public days: WeekDay[] | null = null;
+
+    // public static apiServiceUrl = 'https://spring-pairs.herokuapp.com';
+public static apiServiceUrl = 'http://localhost:8080';
 
     constructor(private subjectService: SubjectService) {
         this.nearestSubjectsWatcher();
@@ -85,6 +89,33 @@ public static apiServiceUrl = 'http://localhost:8080/pairs';
                     this.nearTimingSubjects[2] = response[0];
             }, (error: HttpErrorResponse) => {
                 this.nearTimingSubjects = null;
+            }
+        );
+    }
+
+    initGroups(): void {
+        this.subjectService.getGroups().subscribe( // group
+            (response: String[]) => {
+                this.groups = response
+            }, (error: HttpErrorResponse) => {
+                this.groups = null;
+            }
+        )
+    }
+
+    public initSimpleData() {
+        this.subjectService.getDays().subscribe(
+            (response: WeekDay[]) => {
+                this.days = response;
+            }, (error: HttpErrorResponse) => {
+                this.days = null;
+            }
+        );
+        this.subjectService.getTimings().subscribe(
+            (response: Timing[]) => {
+                this.timings = response;
+            }, (error: HttpErrorResponse) => {
+                this.timings = null;
             }
         );
     }
