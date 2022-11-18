@@ -1,0 +1,20 @@
+<form>
+    <input (click)="enterGroupClicked()" class="enter-group-checkbox" id="enter-group" type="checkbox">
+    <label for="enter-group">Enter not list group</label>
+    <br>
+    <select *ngIf="existingGroup; else enteredGroup" class="text-input" name="group" id="group">
+        <option *ngFor="let group of appComponent.groups" value="{{group}}">{{group}}</option>
+    </select>
+    <ng-template #enteredGroup>
+        <input class="text-input" placeholder="Enter group" type="text">
+    </ng-template>
+</form>
+
+
+
+
+<ng-template #loading>
+    <div class="div_center">
+        <div class="loader"></div>
+    </div>
+</ng-template>
