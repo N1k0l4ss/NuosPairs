@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppComponent} from "../../app.component";
+import {WeekDay} from "../../service/subjects/subject";
 
 @Component({
   selector: 'app-admin',
@@ -17,6 +18,11 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.appComponent.initSimpleData();
     this.appComponent.initGroups();
+
+  }
+
+  isGroupsEmpty(): boolean {
+    return this.appComponent.groups === null || this.appComponent.groups.length === 0;
   }
 
   enterGroupClicked() {

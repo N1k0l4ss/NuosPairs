@@ -1,17 +1,59 @@
 <form>
+    <div *ngIf="isGroupsEmpty(); else not_empty">
+        <div *ngTemplateOutlet="is_empty"></div>
+    </div>
+
+    <div *ngTemplateOutlet="subject_inputs"></div>
+
+</form>
+
+<!---->
+
+<ng-template #not_empty>
     <input (click)="enterGroupClicked()" class="enter-group-checkbox" id="enter-group" type="checkbox">
     <label for="enter-group">Enter not list group</label>
     <br>
-    <select *ngIf="existingGroup; else enteredGroup" class="text-input" name="group" id="group">
+    <select *ngIf="existingGroup; else entering_group" class="text-input" name="group" id="group">
         <option *ngFor="let group of appComponent.groups" value="{{group}}">{{group}}</option>
     </select>
-    <ng-template #enteredGroup>
-        <input class="text-input" placeholder="Enter group" type="text">
-    </ng-template>
-</form>
+</ng-template>
+
+<ng-template #is_empty>
+    <div *ngTemplateOutlet="entering_group"></div>
+</ng-template>
+
+<!---->
 
 
+<ng-template #subject_inputs>
+    <div *ngFor="let day of appComponent.days; let idx = index">
+        <div class="day" *ngIf="idx < 5">
+            <div class="separator"></div>
+            <h2>{{day.title}}</h2>
+            <div class="timing" *ngFor="let timing of appComponent.timings">
 
+                <div class="timings"><strong>{{timing.id}}</strong>. <span>{{timing.startsAt.substring(0, 5)}} - {{timing.endsAt.substring(0, 5)}}</span></div>
+                <div class="subject-inputs">
+                    <input id="subject-even-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Subject title" type="text">
+                    <input id="meeting-even-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Meeting url" type="text">
+                    <input id="class-even-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Classroom url" type="text">
+
+                    <div class="half-separator"></div>
+
+                    <input id="subject-odd-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Subject title (odd week)" type="text">
+                    <input id="meeting-odd-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Meeting url (odd week)" type="text">
+                    <input id="class-odd-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Classroom url (odd week)" type="text">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #entering_group>
+    <input class="text-input" placeholder="Enter group" type="text">
+</ng-template>
 
 <ng-template #loading>
     <div class="div_center">
