@@ -1,58 +1,45 @@
-<form>
-    <div *ngIf="isGroupsEmpty(); else not_empty">
-        <div *ngTemplateOutlet="is_empty"></div>
-    </div>
+<div *ngIf="isGroupsEmpty(); else not_empty">
+    <div *ngTemplateOutlet="is_empty"></div>
+</div>
 
-    <div *ngTemplateOutlet="subject_inputs"></div>
+<div *ngTemplateOutlet="subject_inputs"></div>
 
-</form>
-
-<!---->
 
 <ng-template #not_empty>
-    <input (click)="enterGroupClicked()" class="enter-group-checkbox" id="enter-group" type="checkbox">
-    <label for="enter-group">Enter not list group</label>
-    <br>
-    <select *ngIf="existingGroup; else entering_group" class="text-input" name="group" id="group">
-        <option *ngFor="let group of appComponent.groups" value="{{group}}">{{group}}</option>
-    </select>
+    <form>
+        <input (click)="enterGroupClicked()" class="enter-group-checkbox" id="enter-group" type="checkbox">
+        <label for="enter-group">Enter not list group</label>
+        <br>
+
+        <div *ngIf="existingGroup; else entering_group">
+            <input *ngFor="let group of appComponent.groups" class="azalea-button" type="button" value="{{group}}" (click)="selectGroup(group)">
+        </div>
+    </form>
 </ng-template>
 
 <ng-template #is_empty>
     <div *ngTemplateOutlet="entering_group"></div>
 </ng-template>
 
-<!---->
-
-
 <ng-template #subject_inputs>
-    <div *ngFor="let day of appComponent.days; let idx = index">
-        <div class="day" *ngIf="idx < 5">
-            <div class="separator"></div>
-            <h2>{{day.title}}</h2>
-            <div class="timing" *ngFor="let timing of appComponent.timings">
-
-                <div class="timings"><strong>{{timing.id}}</strong>. <span>{{timing.startsAt.substring(0, 5)}} - {{timing.endsAt.substring(0, 5)}}</span></div>
-                <div class="subject-inputs">
-                    <input id="subject-even-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Subject title" type="text">
-                    <input id="meeting-even-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Meeting url" type="text">
-                    <input id="class-even-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Classroom url" type="text">
-
-                    <div class="half-separator"></div>
-
-                    <input id="subject-odd-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Subject title (odd week)" type="text">
-                    <input id="meeting-odd-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Meeting url (odd week)" type="text">
-                    <input id="class-odd-{{day.title.toLocaleLowerCase()}}-{{timing.id}}" class="text-input" placeholder="Classroom url (odd week)" type="text">
+    <div *ngIf="group">
+        <h2>{{group}}</h2>
+        <form>
+            <input *ngFor="let day of appComponent.days" class="azalea-button" type="button" value="{{day.title}}" (click)="selectDay(day)">
+            <div *ngIf="day">
+                <h2>{{day.title}}</h2>
+                <div *ngIf="subjects; else loading">
+                        <span *ngFor="let timing of appComponent.timings" class="block timing">
+                            <input class="azalea-button" style="min-width: 250px" type="button" value="{{timing.id}}. {{getSubjectsByTiming(timing)}}" (click)="clickedSubject(getSubjectsByTiming(timing))">
+                        </span>
                 </div>
-
-
             </div>
-        </div>
+        </form>
     </div>
 </ng-template>
 
 <ng-template #entering_group>
-    <input class="text-input" placeholder="Enter group" type="text">
+    <input class="azalea-input" placeholder="Enter group" type="text" (keyup)="enterGroup($event)">
 </ng-template>
 
 <ng-template #loading>

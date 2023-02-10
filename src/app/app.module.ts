@@ -10,6 +10,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {GroupSelectorComponent} from "./components/group-selector/group-selector.component";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import { AdminComponent } from './components/admin/admin.component';
+import { SubjectPopupComponent } from './subject-popup/subject-popup.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AdminComponent } from './components/admin/admin.component';
     FooterComponent,
     GroupSelectorComponent,
     AdminComponent,
+    SubjectPopupComponent,
   ],
   imports: [
     HttpClientModule,

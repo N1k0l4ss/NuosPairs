@@ -24,7 +24,7 @@ export class AppComponent {
     // public static apiServiceUrl = 'https://spring-pairs.herokuapp.com';
 public static apiServiceUrl = 'http://localhost:8080';
 
-    constructor(private subjectService: SubjectService) {
+    constructor(public subjectService: SubjectService) {
         this.nearestSubjectsWatcher();
     }
 
@@ -107,6 +107,8 @@ public static apiServiceUrl = 'http://localhost:8080';
         this.subjectService.getDays().subscribe(
             (response: WeekDay[]) => {
                 this.days = response;
+                this.days.pop();
+                this.days.pop();
             }, (error: HttpErrorResponse) => {
                 this.days = null;
             }

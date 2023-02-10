@@ -11,7 +11,3 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-
-// TODO Сделать сохранения номера выбранной группы в куки
-
-// TODO Сделать анимации загрузки
